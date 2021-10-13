@@ -1,6 +1,6 @@
 public class Creature {
   public PVector pos, vel;
-  public int speed = 5;
+  public int speed = 1;
   public float hp = 100.0;
   public final int SIZE = 10;
   public final color COLOR = color(30,30,200);
@@ -28,4 +28,17 @@ public class Creature {
    public void attack(Creature c) {
      
    }
+
+
+  public void collides(Food f) {
+    double dist = PVector.sub(this.pos,f.pos).mag();
+    if (dist <= this.SIZE / 2 + f.SIZE / 2) {
+       hp++;
+      f.active = false;
+      System.out.println("hp: "+hp);
+     }
+  else  {
+    hp-=0.01;
+  }
+}
 }
