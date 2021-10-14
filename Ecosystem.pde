@@ -10,7 +10,7 @@ public void setup() {
 public void draw() {
   background(220);
   for (int i = 0; i < creatures.length; i++) { 
-    if (creatures[i].hp <= 0) { //work on creatures disappearing here
+    if (creatures[i].hp > 0) { //work on creatures disappearing here
       creatures[i].active = false;
       creatures[i].show();
       creatures[i].move();
@@ -18,10 +18,14 @@ public void draw() {
         if (food[e].active == false)
           continue;
 
-        food[e].show();
-        creatures[i].collides(food[e]);
+   creatures[i].collides(food[e]);
       }
     }
+  }
+  for (int e = 0; e < food.length; e++) {
+    if (food[e].active == true)  
+    food[e].show();
+      
   }
 }
   public void spawnCreatures() {

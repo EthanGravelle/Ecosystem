@@ -32,11 +32,11 @@ public class Creature {
   public void collides(Food f) {
     double dist = PVector.sub(this.pos, f.pos).mag();
     if (dist <= this.SIZE / 2 + f.SIZE / 2) {
-      hp++;
+      hp+=10;
       f.active = false;
       System.out.println("hp: "+hp);
     } else {
-      hp-=1;
+      hp-=0.05;
       if (hp <= 0) {
         this.active = false;
       }
